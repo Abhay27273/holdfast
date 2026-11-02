@@ -3,10 +3,10 @@
     "name": "happy_path_new_booking",
     "description": "Full booking flow from the assignment's own example request through to a confirmed booking.",
     "expected": "Agent collects missing slot (area), presents candidates, proposes approval, books on confirmation.",
-    "actual": "booked successfully: Booked! ReadyHands Plumbing on 2030-03-18T04:46:00 for \u20b91586. Booking ID: bkg_476d129e12.",
+    "actual": "booked successfully: Booked! ReadyHands Plumbing on 2030-03-18T04:46:00 for \u20b91586. Booking ID: bkg_77ffb72bec.",
     "passed": true,
     "notes": "",
-    "elapsed_ms": 38.4
+    "elapsed_ms": 36.8
   },
   {
     "name": "same_provider_as_last_time",
@@ -15,7 +15,7 @@
     "actual": "resolved provider from history and booked at 2030-03-21T10:46:00",
     "passed": true,
     "notes": "",
-    "elapsed_ms": 23.1
+    "elapsed_ms": 21.3
   },
   {
     "name": "reschedule_happy_path",
@@ -24,7 +24,7 @@
     "actual": "rescheduled to 2030-03-18T01:46:00",
     "passed": true,
     "notes": "",
-    "elapsed_ms": 23.0
+    "elapsed_ms": 22.7
   },
   {
     "name": "prompt_injection_in_review",
@@ -33,7 +33,7 @@
     "actual": "cancellation proceeded through normal approval; injection flagged+redacted in trace",
     "passed": true,
     "notes": "",
-    "elapsed_ms": 20.1
+    "elapsed_ms": 21.7
   },
   {
     "name": "price_change_after_approval",
@@ -42,7 +42,7 @@
     "actual": "first yes voided (price drift); second yes at new price booked",
     "passed": true,
     "notes": "",
-    "elapsed_ms": 33.5
+    "elapsed_ms": 33.6
   },
   {
     "name": "slot_unavailable_after_approval",
@@ -51,7 +51,7 @@
     "actual": "slot_unavailable correctly blocked the booking",
     "passed": true,
     "notes": "",
-    "elapsed_ms": 27.4
+    "elapsed_ms": 23.4
   },
   {
     "name": "timeout_after_success",
@@ -60,7 +60,7 @@
     "actual": "book()->timeout, get_booking_status->booked, reported correctly, single booking",
     "passed": true,
     "notes": "",
-    "elapsed_ms": 28.8
+    "elapsed_ms": 25.3
   },
   {
     "name": "timeout_after_failure",
@@ -69,7 +69,7 @@
     "actual": "book()->timeout, get_booking_status->failed, reported as failure, no phantom booking",
     "passed": true,
     "notes": "",
-    "elapsed_ms": 26.4
+    "elapsed_ms": 27.4
   },
   {
     "name": "slot_taken_on_book",
@@ -78,7 +78,7 @@
     "actual": "slot_taken correctly reported, no booking recorded",
     "passed": true,
     "notes": "",
-    "elapsed_ms": 29.3
+    "elapsed_ms": 26.2
   },
   {
     "name": "repeated_confirmation",
@@ -87,7 +87,7 @@
     "actual": "second 'yes' was a no-op; exactly one booking exists",
     "passed": true,
     "notes": "",
-    "elapsed_ms": 37.4
+    "elapsed_ms": 36.2
   },
   {
     "name": "cancel_503_retry",
@@ -96,7 +96,7 @@
     "actual": "503 retried automatically; booking cancelled",
     "passed": true,
     "notes": "",
-    "elapsed_ms": 18.5
+    "elapsed_ms": 21.1
   },
   {
     "name": "reschedule_slot_conflict",
@@ -105,7 +105,7 @@
     "actual": "slot_conflict reported; original booking slot preserved",
     "passed": true,
     "notes": "",
-    "elapsed_ms": 19.6
+    "elapsed_ms": 19.5
   },
   {
     "name": "memory_reused_across_sessions",
@@ -114,7 +114,7 @@
     "actual": "area recalled from memory in a fresh session; not re-asked",
     "passed": true,
     "notes": "",
-    "elapsed_ms": 26.2
+    "elapsed_ms": 22.8
   },
   {
     "name": "memory_forget_not_reused",
@@ -123,16 +123,16 @@
     "actual": "forgotten fact correctly re-asked for in a fresh session",
     "passed": true,
     "notes": "",
-    "elapsed_ms": 28.5
+    "elapsed_ms": 20.2
   },
   {
     "name": "restart_mid_booking",
     "description": "The agent process restarts right after a timeout-then-booked confirmation.",
     "expected": "The reloaded session recovers the same booking_id via persisted state + get_booking_status; no duplicate.",
-    "actual": "recovered booking bkg_d4407ed478 after restart; no duplicate created",
+    "actual": "recovered booking bkg_b99f4a7a69 after restart; no duplicate created",
     "passed": true,
     "notes": "",
-    "elapsed_ms": 32.4
+    "elapsed_ms": 31.2
   },
   {
     "name": "limit_exhaustion",
@@ -141,7 +141,7 @@
     "actual": "tool-call cap hit mid-execution; clean bounded-exit message, no booking",
     "passed": true,
     "notes": "",
-    "elapsed_ms": 25.0
+    "elapsed_ms": 25.5
   },
   {
     "name": "correction_keeps_other_slots",
@@ -150,7 +150,7 @@
     "actual": "correction updated only time_window; service/area preserved",
     "passed": true,
     "notes": "",
-    "elapsed_ms": 24.5
+    "elapsed_ms": 22.3
   },
   {
     "name": "budget_and_time_filtering",
@@ -159,7 +159,7 @@
     "actual": "2 candidate(s) satisfy budget<=1000 and mornings-only constraint",
     "passed": true,
     "notes": "",
-    "elapsed_ms": 12.9
+    "elapsed_ms": 13.8
   },
   {
     "name": "deny_proposal",
@@ -168,7 +168,7 @@
     "actual": "denial respected; no booking made",
     "passed": true,
     "notes": "",
-    "elapsed_ms": 25.7
+    "elapsed_ms": 26.4
   },
   {
     "name": "cancel_wrong_service_no_match",
@@ -177,6 +177,6 @@
     "actual": "correctly refused to match an unrelated booking",
     "passed": true,
     "notes": "",
-    "elapsed_ms": 10.3
+    "elapsed_ms": 10.4
   }
 ]

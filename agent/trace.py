@@ -30,6 +30,7 @@ class TraceWriter:
         self.dir = Path(trace_dir) if trace_dir else DEFAULT_TRACE_DIR
         self.dir.mkdir(parents=True, exist_ok=True)
         self.path = self.dir / f"{run_id}.jsonl"
+        self.path.touch(exist_ok=True)  # exists immediately, so `tail -f`/`Get-Content -Wait` can attach before the first message
         self._start = time.monotonic()
 
     def log(self, event_type: str, **fields) -> dict:
