@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# runtime state / traces are generated; keep one committed sample
+data/*
+!data/.gitkeep
+traces/*
+!traces/.gitkeep
+!traces/sample_timeout_after_success.jsonl
+
+.env

@@ -1,0 +1,4 @@
+# Only needed if you use agent/nlu/anthropic_model.py (the optional live-LLM
+# adapter). The default rule-based model, all tests, and the eval harness
+# need nothing beyond requirements.txt.
+anthropic>=0.40.0
